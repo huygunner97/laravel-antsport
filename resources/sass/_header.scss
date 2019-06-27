@@ -392,7 +392,7 @@ h1,h2,h3,h4,h5,h6 {
         font-size: 20px;
         padding: 20px;
     }
-    .login, .signup, .checkout {
+    .login, .signup, .checkout, .forget-pass, .reset-pass{
         position: fixed;
         right: 50%;
         transform: translateX(50%);
@@ -505,7 +505,7 @@ h1,h2,h3,h4,h5,h6 {
         }
     }
     .login {
-        .change-signup {
+        .change-signup, .forget-pass-link {
             cursor: pointer;
         }
     }

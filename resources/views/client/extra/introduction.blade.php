@@ -1,7 +1,5 @@
 @extends ('client.detail.index')
 
-@include ('client.layout.RemoveUnicode')
-
 @section ('menu')
     @include ('client.layout.menu')
 @endsection

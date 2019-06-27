@@ -16,11 +16,11 @@
                                 <ul class="level0">
                                     @foreach ($menu['categories'] as $key => $category)
                                     <li>
-                                        <h5><a href="#">{{$category->c_name}}</a></h5>
+                                        <h5><a href="san-pham/{{$category->pk_category_id}}/{{$category->unsigned_name}}">{{$category->c_name}}</a></h5>
                                         <ul class="level1">
                                             @foreach ($menu['category_detail'][$key] as $cp)
                                             <li>
-                                                <a href="{{url('san-pham/'.$cp->pk_category_detail_id.'/'.removeUnicode($category->c_name).'/'.removeUnicode($cp->c_name).'')}}">{{$cp->c_name}}</a>
+                                                <a href="{{url('san-pham/'.$cp->pk_category_detail_id.'/'.$category->unsigned_name.'/'.$cp->unsigned_name.'')}}">{{$cp->c_name}}</a>
                                             </li>
                                             @endforeach
                                         </ul>
@@ -71,7 +71,7 @@
         <a>Sản phẩm<i class="fas fa-angle-down" id="down"></i></a>
         <div class="dropdown-container">
             @foreach ($menu['categories'] as $category)
-                <a href="san-pham/{{$category->pk_category_id}}/{{removeUnicode($category->c_name)}}"><i class="fas fa-caret-right"></i>&emsp;{{$category->c_name}}</a>
+                <a href="san-pham/{{$category->pk_category_id}}/{{$category->unsigned_name}}"><i class="fas fa-caret-right"></i>&emsp;{{$category->c_name}}</a>
             @endforeach
         </div>
     </div>

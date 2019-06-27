@@ -119,9 +119,15 @@ Route::get('gio-hang/destroy', 'CartController@destroyCart');
 Route::get('dang-xuat', 'ExtraController@getLogout');
 
 Route::get('api', 'ApiController@getProduct');
-Route::get('cart/{cart_number}/{cart_price}/{id}/{number}', 'ApiController@getCart');
-Route::post('login-client', 'ApiController@login');
-Route::post('signup-client', 'ApiController@signup');
-Route::get('checkout', 'ApiController@getCheckout');
-Route::post('checkout', 'ApiController@postCheckout');
+Route::get('cart/{cart_number}/{cart_price}/{id}/{number}', 'AjaxController@getCart');
+Route::post('login-client', 'AjaxController@login');
+Route::post('signup-client', 'AjaxController@signup');
+Route::post('forget-pass', 'AjaxController@forgetPass');
+Route::post('reset-pass', 'AjaxController@resetPass');
+Route::get('checkout', 'AjaxController@getCheckout');
+Route::post('checkout', 'AjaxController@postCheckout');
+
+Route::get('mail/{id}/{user}/{pass}', 'ExtraController@verifyMail');
+Route::get('mail-reset-pass/{user}', 'ExtraController@resetPass');
+
 

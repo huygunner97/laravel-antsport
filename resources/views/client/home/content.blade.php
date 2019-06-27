@@ -1,7 +1,5 @@
 @extends ('client.home.index')
 
-@include ('client.layout.RemoveUnicode')
-
 @section ('menu')
     @include ('client.layout.menu')
 @endsection
@@ -12,7 +10,7 @@
 		<div class="owl-carousel owl-theme" id="main-category">
 			@foreach ($menu['categories'] as $category)
 			<div class="item">
-				<a href="san-pham/{{$category->pk_category_id}}/{{removeUnicode($category->c_name)}}">
+				<a href="san-pham/{{$category->pk_category_id}}/{{$category->unsigned_name}}">
 					<img src="public/upload/mainproduct/{{$category->c_img}}">
 					<div class="main-category-description">{{$category->c_name}}</div>
 				</a>
@@ -35,7 +33,7 @@
 		<div class="row" id="new-product">
 			@foreach ($new_product as $np)
 			<div class="col-lg-3 col-md-4 col-6 new-product-content">
-				<a href="chi-tiet/{{$np->pk_product_id}}/{{removeUnicode($np->c_name)}}">
+				<a href="chi-tiet/{{$np->pk_product_id}}/{{$np->unsigned_name}}">
 					<div class="content-product">
 						<div class="img-product text-center">
 							<img src="public/upload/product/{{$np->c_img}}">
@@ -71,14 +69,14 @@
                 $(".loader").show();
                 setTimeout(function(){
                     $.ajax({
-                        url : 'http://localhost/sport-project/laravel-update/api',
+                        url : 'http://localhost/sport-project/laravel-antsport/api',
                         type : 'get',
                         dataType : 'json',
                         success : function (result){
                             var html = '';
                             $.each (result, function (key, item){
                                 html += '<div class="col-lg-3 col-md-4 col-6 new-product-content">';
-                                html += '<a href="chi-tiet/'+item['pk_product_id']+'/'+item['c_name']+'">';
+                                html += '<a href="chi-tiet/'+item['pk_product_id']+'/'+item['unsigned_name']+'">';
                                 html += '<div class="content-product">';
                                 html += '<div class="img-product text-center">';
                                 html += '<img src="public/upload/product/'+item['c_img']+'">';
@@ -140,7 +138,7 @@
 					<div class="owl-carousel owl-theme owl-hot-product">
 						@foreach ($hot_product[1] as $hp)
 						<div class="item">
-							<a href="chi-tiet/{{$hp->pk_product_id}}/{{removeUnicode($hp->c_name)}}">
+							<a href="chi-tiet/{{$hp->pk_product_id}}/{{$hp->unsigned_name}}">
 								<div class="content-product">
 									<div class="img-product text-center">
 										<img src="public/upload/product/{{$hp->c_img}}">
@@ -165,7 +163,7 @@
                     <div class="owl-carousel owl-theme owl-hot-product">
                         @foreach ($hot_product[2] as $hp)
                             <div class="item">
-                                <a href="chi-tiet/{{$hp->pk_product_id}}/{{removeUnicode($hp->c_name)}}">
+                                <a href="chi-tiet/{{$hp->pk_product_id}}/{{$hp->unsigned_name}}">
                                     <div class="content-product">
                                         <div class="img-product text-center">
                                             <img src="public/upload/product/{{$hp->c_img}}">
@@ -190,7 +188,7 @@
                     <div class="owl-carousel owl-theme owl-hot-product">
                         @foreach ($hot_product[3] as $hp)
                             <div class="item">
-                                <a href="chi-tiet/{{$hp->pk_product_id}}/{{removeUnicode($hp->c_name)}}">
+                                <a href="chi-tiet/{{$hp->pk_product_id}}/{{$hp->unsigned_name}}">
                                     <div class="content-product">
                                         <div class="img-product text-center">
                                             <img src="public/upload/product/{{$hp->c_img}}">
@@ -215,7 +213,7 @@
                     <div class="owl-carousel owl-theme owl-hot-product">
                         @foreach ($hot_product[4] as $hp)
                             <div class="item">
-                                <a href="chi-tiet/{{$hp->pk_product_id}}/{{removeUnicode($hp->c_name)}}">
+                                <a href="chi-tiet/{{$hp->pk_product_id}}/{{$hp->unsigned_name}}">
                                     <div class="content-product">
                                         <div class="img-product text-center">
                                             <img src="public/upload/product/{{$hp->c_img}}">
@@ -256,7 +254,7 @@
 				<div class="owl-carousel owl-theme owl-news">
 					@foreach ($news as $n)
 					<div class="item">
-						<a href="tin-tuc/{{$n->pk_news_id}}/{{removeUnicode($n->c_title)}}">
+						<a href="tin-tuc/{{$n->pk_news_id}}/{{$n->unsigned_title}}">
 							<div class="content-news">
 								<div class="img-news">
 									<img src="public/upload/news/{{$n->c_img}}">
@@ -287,3 +285,4 @@
 	</div>
 </div>
 @endsection
+

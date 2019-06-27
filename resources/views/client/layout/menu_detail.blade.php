@@ -9,7 +9,7 @@
 	</div>
 	<div class="dropdown-container_detail">
 		@foreach ($menu['category_detail'][$key]  as $cp)
-		<a href="san-pham/{{$cp->pk_category_detail_id}}/{{removeUnicode($category->c_name)}}/{{removeUnicode($cp->c_name)}}"><i class="fas fa-caret-right"></i>&emsp;{{$cp->c_name}}</a>
+		<a href="san-pham/{{$cp->pk_category_detail_id}}/{{$category->unsigned_name}}/{{$cp->unsigned_name}}"><i class="fas fa-caret-right"></i>&emsp;{{$cp->c_name}}</a>
 		@endforeach
 	</div>
 	@endforeach

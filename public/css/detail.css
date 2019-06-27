@@ -389,7 +389,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 20px;
   padding: 20px;
 }
-.header .login, .header .signup, .header .checkout {
+.header .login, .header .signup, .header .checkout, .header .forget-pass, .header .reset-pass {
   position: fixed;
   right: 50%;
   -webkit-transform: translateX(50%);
@@ -425,18 +425,18 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
   }
 }
-.header .login table, .header .signup table, .header .checkout table {
+.header .login table, .header .signup table, .header .checkout table, .header .forget-pass table, .header .reset-pass table {
   margin: auto;
 }
-.header .login table tr td, .header .signup table tr td, .header .checkout table tr td {
+.header .login table tr td, .header .signup table tr td, .header .checkout table tr td, .header .forget-pass table tr td, .header .reset-pass table tr td {
   padding-left: 0;
   padding-right: 0;
 }
-.header .login table tr td i, .header .signup table tr td i, .header .checkout table tr td i {
+.header .login table tr td i, .header .signup table tr td i, .header .checkout table tr td i, .header .forget-pass table tr td i, .header .reset-pass table tr td i {
   color: red;
   margin-right: 5px;
 }
-.header .login table tr td input, .header .signup table tr td input, .header .checkout table tr td input {
+.header .login table tr td input, .header .signup table tr td input, .header .checkout table tr td input, .header .forget-pass table tr td input, .header .reset-pass table tr td input {
   width: 100%;
   outline: none;
   line-height: 25px;
@@ -444,20 +444,20 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
   padding-left: 3%;
 }
-.header .login table tr td input:focus, .header .signup table tr td input:focus, .header .checkout table tr td input:focus {
+.header .login table tr td input:focus, .header .signup table tr td input:focus, .header .checkout table tr td input:focus, .header .forget-pass table tr td input:focus, .header .reset-pass table tr td input:focus {
   box-shadow: 1px 1px 5px #99c95c;
 }
-.header .login table tr td input[type=submit]:hover, .header .signup table tr td input[type=submit]:hover, .header .checkout table tr td input[type=submit]:hover {
+.header .login table tr td input[type=submit]:hover, .header .signup table tr td input[type=submit]:hover, .header .checkout table tr td input[type=submit]:hover, .header .forget-pass table tr td input[type=submit]:hover, .header .reset-pass table tr td input[type=submit]:hover {
   box-shadow: 1px 1px 5px #99c95c;
   background-color: #a1e054;
 }
-.header .login table tr td .alert-err, .header .signup table tr td .alert-err, .header .checkout table tr td .alert-err {
+.header .login table tr td .alert-err, .header .signup table tr td .alert-err, .header .checkout table tr td .alert-err, .header .forget-pass table tr td .alert-err, .header .reset-pass table tr td .alert-err {
   line-height: 30px;
   border-radius: 10px;
   padding-left: 15px;
   background-color: #f88c2c;
 }
-.header .login table tr th, .header .signup table tr th, .header .checkout table tr th {
+.header .login table tr th, .header .signup table tr th, .header .checkout table tr th, .header .forget-pass table tr th, .header .reset-pass table tr th {
   padding-left: 0;
   padding-right: 0;
   font-family: Roboto-Medium;
@@ -469,10 +469,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
   text-align: center;
 }
-.header .login table tr:nth-child(2) td, .header .signup table tr:nth-child(2) td, .header .checkout table tr:nth-child(2) td {
+.header .login table tr:nth-child(2) td, .header .signup table tr:nth-child(2) td, .header .checkout table tr:nth-child(2) td, .header .forget-pass table tr:nth-child(2) td, .header .reset-pass table tr:nth-child(2) td {
   padding-top: 15px;
 }
-.header .login table tr:last-child input, .header .signup table tr:last-child input, .header .checkout table tr:last-child input {
+.header .login table tr:last-child input, .header .signup table tr:last-child input, .header .checkout table tr:last-child input, .header .forget-pass table tr:last-child input, .header .reset-pass table tr:last-child input {
   border: none;
   width: 20%;
   background-color: #99c95c;
@@ -482,17 +482,17 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   padding-left: 1%;
 }
-.header .login table tr:last-child a, .header .signup table tr:last-child a, .header .checkout table tr:last-child a {
+.header .login table tr:last-child a, .header .signup table tr:last-child a, .header .checkout table tr:last-child a, .header .forget-pass table tr:last-child a, .header .reset-pass table tr:last-child a {
   float: right;
   margin-right: 10px;
   margin-top: 5px;
   text-decoration: underline;
   font-size: 14px;
 }
-.header .login table tr:last-child a:hover, .header .signup table tr:last-child a:hover, .header .checkout table tr:last-child a:hover {
+.header .login table tr:last-child a:hover, .header .signup table tr:last-child a:hover, .header .checkout table tr:last-child a:hover, .header .forget-pass table tr:last-child a:hover, .header .reset-pass table tr:last-child a:hover {
   color: #99c95c;
 }
-.header .login .exit, .header .signup .exit, .header .checkout .exit {
+.header .login .exit, .header .signup .exit, .header .checkout .exit, .header .forget-pass .exit, .header .reset-pass .exit {
   position: absolute;
   right: -10px;
   top: -10px;
@@ -506,7 +506,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 400px;
   overflow-y: scroll;
 }
-.header .login .change-signup {
+.header .login .change-signup, .header .login .forget-pass-link {
   cursor: pointer;
 }
 .header .checkout table tr:last-child input {
@@ -623,9 +623,13 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 90px;
   position: relative;
 }
+.show_product .products .detail .content-product .img-product {
+  overflow: hidden;
+}
 .show_product .products .detail .content-product .img-product img {
   width: 100%;
   height: 200px;
+  transition: 1s;
 }
 .show_product .products .detail .content-product .title-product {
   position: absolute;
@@ -657,12 +661,18 @@ h1, h2, h3, h4, h5, h6 {
 .show_product .products .detail .content-product:hover .title-product {
   margin-top: -20px;
 }
+.show_product .products .detail .content-product:hover .title-product span {
+  color: #99c95c;
+}
 .show_product .products .detail .content-product:hover .title-product span:last-child {
   display: flex;
   justify-content: space-between;
 }
-.show_product .products .detail .content-product:hover .title-product span {
-  color: #99c95c;
+.show_product .products .detail .content-product:hover .img-product img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  transition: 1s;
+  width: 105%;
 }
 .show_product .product_detail {
   margin-top: 10px;
@@ -959,6 +969,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .show_cart #purchased table td, .show_cart #cart table td {
   text-align: center;
+  vertical-align: middle;
   font-size: 13px;
 }
 .show_cart #purchased table th, .show_cart #cart table th {

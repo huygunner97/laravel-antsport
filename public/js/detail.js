@@ -1,9 +1,18 @@
 // menu page detail
 $(document).ready(function(){
     $('.dropdown-btn_detail').click(function(){
+        $(this).addClass('clicked');
         $(this).next().slideToggle(300);
         $(this).children('#down').toggle();
         $(this).children('#up').toggle();
+        $('.dropdown-btn_detail').each(function () {
+            if (!$(this).hasClass('clicked')) {
+                $(this).children('#down').show();
+                $(this).children('#up').hide();
+                $(this).next().slideUp(300);
+            }
+            $(this).removeClass('clicked');
+        })
     });
 });
 

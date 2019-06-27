@@ -1,7 +1,5 @@
 @extends ('client.detail.index')
 
-@include ('client.layout.RemoveUnicode')
-
 @section ('menu')
     @include ('client.layout.menu')
 @endsection
@@ -138,7 +136,7 @@
 
         $('.payment').click(function () {
             $.ajax({
-                url : "http://localhost/sport-project/laravel-update/checkout",
+                url : "http://localhost/sport-project/laravel-antsport/checkout",
                 type : "get",
                 dataType: 'json',
                 success : function (data){

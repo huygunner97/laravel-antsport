@@ -3,10 +3,10 @@
 <head>
     <title>Admin</title>
     <meta charset="utf-8">
-    <base href="http://localhost/sport-project/laravel/">
+    <base href="http://localhost/sport-project/laravel-antsport/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{asset('public/admin/css/layout.css')}}">
-    <script type="text/javascript" src="{{asset('public/admin/ckeditor/ckeditor.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('public/css/admin/layout.css')}}">
+    <script type="text/javascript" src="{{asset('public/ckeditor/ckeditor.js')}}"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
@@ -30,8 +30,8 @@
         
         </div>
     </div>
-    <script type="text/javascript" src="{{asset('public/client/js/jquery-3.3.1.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('public/js/jquery-3.4.1.min.js')}}"></script>
     @yield('script')
-    <script type="text/javascript" src="{{asset('public/admin/js/layout.js')}}"></script>
+    <script type="text/javascript" src="{{asset('public/js/admin/layout.js')}}"></script>
 </body>
 </html>

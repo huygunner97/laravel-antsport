@@ -8,7 +8,7 @@ use App\Product;
 use App\Category;
 use App\CategoryDetail;
 
-class AdminProductController extends Controller
+class AdminProductController extends AdminController
 {
     public function getList()
     {
@@ -42,6 +42,7 @@ class AdminProductController extends Controller
 
         $product = new Product;
         $product->c_name = $request->c_name;
+        $product->unsigned_name = parent::removeUnicode($request->c_name);
         $product->fk_product_id = $request->pk_category_detail_id;
         $product->c_description = $request->c_description;
         $product->c_price = $request->c_price;
@@ -99,6 +100,7 @@ class AdminProductController extends Controller
 
         $product = Product::find($id);
         $product->c_name = $request->c_name;
+        $product->unsigned_name = parent::removeUnicode($request->c_name);
         $product->fk_product_id = $request->pk_category_detail_id;
         $product->c_description = $request->c_description;
         $product->c_price = $request->c_price;

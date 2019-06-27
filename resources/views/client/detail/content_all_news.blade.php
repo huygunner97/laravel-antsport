@@ -1,7 +1,5 @@
 @extends ('client.detail.index')
 
-@include ('client.layout.RemoveUnicode')
-
 @section ('menu')
     @include ('client.layout.menu')
 @endsection
@@ -25,7 +23,7 @@
                     <hr>
                     <div class="show_related_news">
                         @foreach ($newses as $n)
-                            <a href="tin-tuc/{{$n->pk_news_id}}/{{removeUnicode($n->c_title)}}">
+                            <a href="tin-tuc/{{$n->pk_news_id}}/{{$n->unsigned_title}}">
                                 <img src="public/upload/news/{{$n->c_img}}" >
                                 <span>{{$n->c_title}}</span>
                             </a>
@@ -43,7 +41,7 @@
                         <div class="row">
                             @foreach ($hot_news as $n)
                                 <div class="col-md-6" style="padding-bottom: 50px">
-                                    <a href="tin-tuc/{{$n->pk_news_id}}/{{removeUnicode($n->c_title)}}" title="{{$n->c_title}}">
+                                    <a href="tin-tuc/{{$n->pk_news_id}}/{{$n->unsigned_title}}" title="{{$n->c_title}}">
                                         <div class="images">
                                             <img src="public/upload/news/{{$n->c_img}}">
                                         </div>
@@ -66,7 +64,7 @@
                     <hr>
                     <div class="show_knowledge">
                         @foreach ($tips as $n)
-                            <a href="tin-tuc/{{$n->pk_news_id}}/{{removeUnicode($n->c_title)}}">
+                            <a href="tin-tuc/{{$n->pk_news_id}}/{{$n->unsigned_title}}">
                                 <img src="public/upload/news/{{$n->c_img}}" >
                                 <span>{{$n->c_title}}</span>
                             </a>

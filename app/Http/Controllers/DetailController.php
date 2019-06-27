@@ -170,7 +170,7 @@ class DetailController extends ControllerClient
         $search = addslashes($_GET['search']);
         if (empty($search)) {
             echo "<script>alert('Bạn chưa nhập thông tin cần tìm kiếm')</script>";
-            echo "<script>location.href='http://localhost/sport-project/laravel-update/'</script>";
+            echo "<script>location.href='http://localhost/sport-project/laravel-antsport/'</script>";
         } else {
             $num = Product::where('c_name', 'like', '%'.$search.'%')->count();
             $product = Product::where('c_name', 'like', '%'.$search.'%')->paginate(9);

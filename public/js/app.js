@@ -49348,6 +49348,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/admin/layout.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/admin/layout.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/admin/login.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/admin/login.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49382,17 +49404,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!**************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/home.scss ./resources/sass/detail.scss ./resources/app/_header.scss ***!
-  \**************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/home.scss ./resources/sass/detail.scss ./resources/sass/admin/login.scss ./resources/sass/admin/layout.scss ./resources/app/_header.scss ***!
+  \***********************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/sport-project/laravel-update/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /var/www/html/sport-project/laravel-update/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /var/www/html/sport-project/laravel-update/resources/sass/home.scss */"./resources/sass/home.scss");
-__webpack_require__(/*! /var/www/html/sport-project/laravel-update/resources/sass/detail.scss */"./resources/sass/detail.scss");
-!(function webpackMissingModule() { var e = new Error("Cannot find module '/var/www/html/sport-project/laravel-update/resources/app/_header.scss'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+__webpack_require__(/*! /var/www/html/sport-project/laravel-antsport/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/html/sport-project/laravel-antsport/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/sport-project/laravel-antsport/resources/sass/home.scss */"./resources/sass/home.scss");
+__webpack_require__(/*! /var/www/html/sport-project/laravel-antsport/resources/sass/detail.scss */"./resources/sass/detail.scss");
+__webpack_require__(/*! /var/www/html/sport-project/laravel-antsport/resources/sass/admin/login.scss */"./resources/sass/admin/login.scss");
+__webpack_require__(/*! /var/www/html/sport-project/laravel-antsport/resources/sass/admin/layout.scss */"./resources/sass/admin/layout.scss");
+!(function webpackMissingModule() { var e = new Error("Cannot find module '/var/www/html/sport-project/laravel-antsport/resources/app/_header.scss'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 /***/ })

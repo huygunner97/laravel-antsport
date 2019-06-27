@@ -43,7 +43,7 @@
                 @endif
             </div>
             <div>
-                <p><strong>Tổng sp :</strong>&emsp;{{$count}}&nbsp;Sản phẩm</p>
+                <p><strong>Tổng sản phẩm :</strong>&emsp;{{$count}}&nbsp;Sản phẩm</p>
                 <p><strong>Tổng giá :</strong>&emsp;{{number_format($order->price)}}</p>
             </div>
         </div>

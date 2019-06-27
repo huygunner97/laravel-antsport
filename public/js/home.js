@@ -95,23 +95,3 @@ $(function(){
         }
     });
 });
-
-
-
-$(function(){
-    $('.footer-widget > h4').find('i').click(function () {
-        var footer_widget = $(this).parents('.footer-widget > h4');
-            footer_widget.addClass('clicked');
-            footer_widget.children('#down').toggle();
-            footer_widget.children('#up').toggle();
-            footer_widget.siblings('.list-menu').slideToggle(300);
-        $('.footer-widget > h4').each(function () {
-            if (!$(this).hasClass('clicked')) {
-                $(this).children('#down').show();
-                $(this).children('#up').hide();
-                $(this).siblings('.list-menu').slideUp(300);
-            }
-            $(this).removeClass('clicked');
-        })
-    })
-});

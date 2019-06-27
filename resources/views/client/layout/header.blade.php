@@ -1,5 +1,5 @@
 <!-- Load Facebook SDK for JavaScript -->
-{{-- <div id="fb-root"></div> --}}
+<div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -12,19 +12,20 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+  js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Your customer chat code -->
 <div class="fb-customerchat"
   attribution=setup_tool
-  page_id="311725165842877">
+  page_id="311725165842877"
+  theme_color="#99c95c">
 </div>
 
 {{--header --}}
 <div class="opacity-responsive" id="opacity-responsive" onclick="closeNav()"></div>
-<div class="opacity-login" id="opacity-login" onclick="closeLogin(); closeSignup(); closeCheckout()"></div>
+<div class="opacity-login" id="opacity-login" onclick="closeLogin(); closeSignup(); closeCheckout(); closeForgetPass(); closeResetPass()"></div>
 <div class="header">
     <div class="topbar">
         <div class="container">
@@ -153,7 +154,73 @@
                     <td><div class="alert-err err-pass"></div></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" id="submit"  value="Gửi"><a class="change-signup" onclick="closeLogin(); openSignup()">Đăng ký ?</a></td>
+                    <td><input type="submit" id="submit"  value="Gửi">
+                        <a class="change-signup" onclick="closeLogin(); openSignup()">Đăng ký ?</a>
+                        <a class="forget-pass-link" onclick="closeLogin(); openForgetPass()">Quên mật khẩu ?</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="forget-pass">
+        <i class="fas fa-times-circle exit" onclick="closeForgetPass()"></i>
+        <form>
+            <table cellpadding="5" style="width: 95%;">
+                <tr>
+                    <th>Quên mật khẩu</th>
+                </tr>
+                <tr>
+                    <td><i>*</i>Email :</td>
+                </tr>
+                <tr>
+                    <td><input type="email" name="email" value="{{old('email')}}" ></td>
+                </tr>
+                <tr>
+                    <td><div class="alert-err err-email"></div></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" id="submit"  value="Gửi">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="reset-pass">
+        <i class="fas fa-times-circle exit" onclick="closeResetPass()"></i>
+        <form>
+            <table cellpadding="5" style="width: 95%;">
+                <tr>
+                    <th>Đổi mật khẩu</th>
+                </tr>
+                <tr>
+                    <td><i>*</i>Email :</td>
+                </tr>
+                <tr>
+                    <td><input type="email" name="email" value="{{old('email')}}" ></td>
+                </tr>
+                <tr>
+                    <td><div class="alert-err err-email"></div></td>
+                </tr>
+                <tr>
+                    <td><i>*</i>Mật khẩu mới :</td>
+                </tr>
+                <tr>
+                    <td><input type="password" name="password" value="" ></td>
+                </tr>
+                <tr>
+                    <td><div class="alert-err err-pass"></div></td>
+                </tr>
+                <tr>
+                    <td><i>*</i>Xác nhận mật khẩu :</td>
+                </tr>
+                <tr>
+                    <td><input type="password" name="confirm" value="" ></td>
+                </tr>
+                <tr>
+                    <td><div class="alert-err err-confirm"></div></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" id="submit"  value="Gửi"></td>
                 </tr>
             </table>
         </form>
@@ -228,7 +295,6 @@
             </table>
         </form>
     </div>
-
     <div class="checkout">
         <i class="fas fa-times-circle exit" onclick="closeCheckout()"></i>
         <form>

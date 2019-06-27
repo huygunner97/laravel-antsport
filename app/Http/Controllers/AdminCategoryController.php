@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Category;
 
-class AdminCategoryController extends Controller
+class AdminCategoryController extends AdminController
 {
 
     public function getList()
@@ -32,6 +32,7 @@ class AdminCategoryController extends Controller
 
         $category = new Category;
         $category->c_name = $request->c_name;
+        $category->unsigned_name = parent::removeUnicode($request->c_name);
 
         $c_img = "";
         if ($request->hasFile("c_img")) {
@@ -64,6 +65,7 @@ class AdminCategoryController extends Controller
 
         $category = Category::find($id);
         $category->c_name = $request->c_name;
+        $category->unsigned_name = parent::removeUnicode($request->c_name);
 
         if ($request->hasFile("c_img")) {
             $old_img = Category::where('pk_category_id', $id)->first('c_img');

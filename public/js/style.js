@@ -82,21 +82,39 @@ scrollTopButton.onclick = function() {
 function openLogin() {
     $('#opacity-login').css('display', 'block');
     $('.login').css('display', 'block');
+    $('.account-login-hidden').css('display', 'none');
 }
 function closeLogin() {
     $('#opacity-login').css('display', 'none');
     $('.login').css('display', 'none');
+    $('.account-login-hidden').css('display', '');
 }
-
+function openForgetPass() {
+    $('#opacity-login').css('display', 'block');
+    $('.forget-pass').css('display', 'block');
+}
+function closeForgetPass() {
+    $('#opacity-login').css('display', 'none');
+    $('.forget-pass').css('display', 'none');
+}
+function openResetPass() {
+    $('#opacity-login').css('display', 'block');
+    $('.reset-pass').css('display', 'block');
+}
+function closeResetPass() {
+    $('#opacity-login').css('display', 'none');
+    $('.reset-pass').css('display', 'none');
+}
 function openSignup() {
     $('#opacity-login').css('display', 'block');
     $('.signup').css('display', 'block');
+    $('.account-login-hidden').css('display', 'none');
 }
 function closeSignup() {
     $('#opacity-login').css('display', 'none');
     $('.signup').css('display', 'none');
+    $('.account-login-hidden').css('display', '');
 }
-
 function openCheckout() {
     $('#opacity-login').css('display', 'block');
     $('.checkout').css('display', 'block');
@@ -121,7 +139,7 @@ $(function () {
         $('.login').find('.err-email').html('');
         $('.login').find('.err-pass').html('');
         $.ajax({
-            url : "http://localhost/sport-project/laravel-update/login-client",
+            url : "http://localhost/sport-project/laravel-antsport/login-client",
             type : "post",
             dataType: 'json',
             data: {
@@ -171,6 +189,114 @@ $(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
+    $('.forget-pass').find('#submit').click(function (e) {
+        e.preventDefault();
+        var email = $('.forget-pass').find("input[name=email]").val();
+        $('.forget-pass').find('.err-email').html('');
+        $.ajax({
+            url : "http://localhost/sport-project/laravel-antsport/forget-pass",
+            type : "post",
+            dataType: 'json',
+            data: {
+                email:email
+            },
+            success : function (data){
+                var result = [];
+                $.each(data, function (key, item) {
+                    result[key] = item;
+                })
+                if (result['email']) {
+                    var html ='';
+                    $.each(result['email'], function (key, item) {
+                        html += ''+item+'</br>';
+                    });
+                    $('.forget-pass').find('.err-email').html(html);
+                } else if (result['err-email']) {
+                    var html ='';
+                    $.each(result['err-email'], function (key, item) {
+                        html += ''+item+'</br>';
+                    });
+                    $('.forget-pass').find('.err-email').html(html);
+                } else {
+                    alert(result['announce']);
+                    closeForgetPass();
+                }
+            }
+        });
+    })
+});
+
+$(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $('.reset-pass').find('#submit').click(function (e) {
+        e.preventDefault();
+        var password = $('.reset-pass').find("input[name=password]").val();
+        var email = $('.reset-pass').find("input[name=email]").val();
+        var confirm = $('.reset-pass').find("input[name=confirm]").val();
+
+        $('.reset-pass').find('.err-email').html('');
+        $('.reset-pass').find('.err-pass').html('');
+        $('.reset-pass').find('.err-confirm').html('');
+
+        $.ajax({
+            url: "http://localhost/sport-project/laravel-antsport/reset-pass",
+            type: "post",
+            dataType: 'json',
+            data: {
+                email: email, password: password, confirm: confirm
+            },
+            success: function (data) {
+                var result = [];
+                $.each(data, function (key, item) {
+                    result[key] = item;
+                })
+                if (result['email']) {
+                    var html ='';
+                    $.each(result['email'], function (key, item) {
+                        html += ''+item+'</br>';
+                    });
+                    $('.reset-pass').find('.err-email').html(html);
+                } else if (result['err-email']) {
+                    var html ='';
+                    $.each(result['err-email'], function (key, item) {
+                        html += ''+item+'</br>';
+                    });
+                    $('.reset-pass').find('.err-email').html(html);
+                } else if (result['password']) {
+                    var html ='';
+                    $.each(result['password'], function (key, item) {
+                        html += ''+item+'</br>';
+                    });
+                    $('.reset-pass').find('.err-pass').html(html);
+                } else if (result['err-confirm']) {
+                    var html ='';
+                    $.each(result['err-confirm'], function (key, item) {
+                        html += ''+item+'</br>';
+                    });
+                    $('.reset-pass').find('.err-confirm').html(html);
+                } else {
+                    alert(result['announce']);
+                    closeResetPass();
+                    openLogin();
+                    $('.login').find('input[name=email]').attr('value', result['user']);
+                    $('.login').find('input[name=password]').attr('value', result['pass']);
+                }
+            }
+        });
+    })
+});
+
+$(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     $('.signup').find('#submit').click(function (e) {
         e.preventDefault();
         var password = $('.signup').find("input[name=password]").val();
@@ -188,7 +314,7 @@ $(function () {
         $('.signup').find('.err-phone').html('');
 
         $.ajax({
-            url: "http://localhost/sport-project/laravel-update/signup-client",
+            url: "http://localhost/sport-project/laravel-antsport/signup-client",
             type: "post",
             dataType: 'json',
             data: {
@@ -236,11 +362,9 @@ $(function () {
                     });
                     $('.signup').find('.err-phone').html(html);
                 } else {
-                    alert(result['ok']);
+                    alert(result['announce']);
+                    $('.signup').find('input').attr('value', '');
                     closeSignup();
-                    openLogin();
-                    $('.login').find("input[name=email]").attr('value', result['user']);
-                    $('.login').find("input[name=password]").attr('value', result['pass']);
                 }
 
             }
@@ -265,7 +389,7 @@ $(function () {
         $('.checkout').find('.err-phone').html('');
 
         $.ajax({
-            url: "http://localhost/sport-project/laravel-update/checkout",
+            url: "http://localhost/sport-project/laravel-antsport/checkout",
             type: "post",
             dataType: 'json',
             data: {
@@ -300,5 +424,23 @@ $(function () {
                 }
             }
         });
+    })
+});
+
+$(function(){
+    $('.footer-widget > h4').find('i').click(function () {
+        var footer_widget = $(this).parents('.footer-widget > h4');
+        footer_widget.addClass('clicked');
+        footer_widget.children('#down').toggle();
+        footer_widget.children('#up').toggle();
+        footer_widget.siblings('.list-menu').slideToggle(300);
+        $('.footer-widget > h4').each(function () {
+            if (!$(this).hasClass('clicked')) {
+                $(this).children('#down').show();
+                $(this).children('#up').hide();
+                $(this).siblings('.list-menu').slideUp(300);
+            }
+            $(this).removeClass('clicked');
+        })
     })
 });

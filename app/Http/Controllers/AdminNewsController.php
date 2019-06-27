@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\News;
 
-class AdminNewsController extends Controller
+class AdminNewsController extends AdminController
 {
     public function getList()
     {
@@ -35,6 +35,7 @@ class AdminNewsController extends Controller
 
         $news = new News;
         $news->c_title = $request->c_title;
+        $news->unsigned_title = parent::removeUnicode($request->c_title);
         $news->c_content = $request->c_content;
         if (isset($request->c_date)) {
             $news->c_date = $request->c_date;
@@ -78,6 +79,7 @@ class AdminNewsController extends Controller
 
         $news = News::find($id);
         $news->c_title = $request->c_title;
+        $news->unsigned_title = parent::removeUnicode($request->c_title);
         $news->c_content = $request->c_content;
         if (isset($request->c_date)) {
             $news->c_date = $request->c_date;

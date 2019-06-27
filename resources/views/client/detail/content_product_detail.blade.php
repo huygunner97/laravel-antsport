@@ -1,7 +1,5 @@
 @extends ('client.detail.index')
 
-@include ('client.layout.RemoveUnicode')
-
 @section ('menu')
     @include ('client.layout.menu')
 @endsection
@@ -10,9 +8,9 @@
 <div class="breadcrumb">
     <div class="container">
         <a href=""><i class="fas fa-home"></i>&nbsp;Trang chủ</a>&nbsp;&nbsp;>&nbsp;&nbsp;
-        <a href="san-pham/{{$product_detail->categoryDetail->category->pk_category_id}}/{{removeUnicode($product_detail->categoryDetail->category->c_name)}}">{{$product_detail->categoryDetail->category->c_name}}</a>&nbsp;&nbsp;>&nbsp;&nbsp;
-        <a href="san-pham/{{$product_detail->categoryDetail->pk_category_detail_id}}/{{removeUnicode($product_detail->categoryDetail->category->c_name)}}/{{removeUnicode($product_detail->categoryDetail->c_name)}}">{{$product_detail->categoryDetail->c_name}}</a>&nbsp;&nbsp;>&nbsp;&nbsp;
-        <a href="chi-tiet/{{$product_detail->pk_product_id}}/{{removeUnicode($product_detail->c_name)}}" class="active-text">{{$product_detail->c_name}}</a>
+        <a href="san-pham/{{$product_detail->categoryDetail->category->pk_category_id}}/{{$product_detail->categoryDetail->category->unsigned_name}}">{{$product_detail->categoryDetail->category->c_name}}</a>&nbsp;&nbsp;>&nbsp;&nbsp;
+        <a href="san-pham/{{$product_detail->categoryDetail->pk_category_detail_id}}/{{$product_detail->categoryDetail->category->unsigned_name}}/{{$product_detail->categoryDetail->unsigned_name}}">{{$product_detail->categoryDetail->c_name}}</a>&nbsp;&nbsp;>&nbsp;&nbsp;
+        <a href="chi-tiet/{{$product_detail->pk_product_id}}/{{$product_detail->unsigned_name}}" class="active-text">{{$product_detail->c_name}}</a>
     </div>
 </div>
 <!-- main -->
@@ -29,7 +27,7 @@
                         <hr>
                         <div class="show_related_product">
                             @foreach ($product_related as $pr)
-                                <a href="chi-tiet/{{$pr->pk_product_id}}/{{removeUnicode($pr->c_name)}}">
+                                <a href="chi-tiet/{{$pr->pk_product_id}}/{{$pr->unsigned_name}}">
                                     <img src="public/upload/product/{{$pr->c_img}}" >
                                     <span>{{$pr->c_name}}</span>
                                 </a>
@@ -88,7 +86,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="fb-comments" data-href="http://localhost/sport-project/laravel/chi-tiet/{{$product_detail->pk_product_id}}/{{removeUnicode($product_detail->c_name)}}" data-width="100%"></div>
+                    <div class="fb-comments" data-href="http://localhost/sport-project/laravel-antsport/chi-tiet/{{$product_detail->pk_product_id}}/{{$product_detail->unsigned_name}}" data-width="100%"></div>
                 </div>
             </div>
         </div>
@@ -99,7 +97,7 @@
             <hr>
             <div class="show_related_product">
                 @foreach ($product_related as $pr)
-                <a href="chi-tiet/{{$pr->pk_product_id}}/{{removeUnicode($pr->c_name)}}">
+                <a href="chi-tiet/{{$pr->pk_product_id}}/{{$pr->unsigned_name}}">
                     <img src="public/upload/product/{{$pr->c_img}}" >
                     <span>{{$pr->c_name}}</span>
                 </a>

@@ -1,7 +1,5 @@
 @extends ('client.detail.index')
 
-@include ('client.layout.RemoveUnicode')
-
 @section ('menu')
     @include ('client.layout.menu')
 @endsection
@@ -55,7 +53,7 @@
                             @foreach ($product as $pd)
                                 <div class="col-md-4 col-6">
                                     <div class="detail">
-                                        <a href="chi-tiet/{{$pd->pk_product_id}}/{{removeUnicode($pd->c_name)}}">
+                                        <a href="chi-tiet/{{$pd->pk_product_id}}/{{$pd->unsigned_name}}">
                                             <div class="content-product">
                                                 <div class="img-product text-center">
                                                     <img src="public/upload/product/{{$pd->c_img}}">

@@ -7,7 +7,7 @@ use Illuminate\Validation\Rule;
 use App\CategoryDetail;
 use App\Category;
 
-class AdminCategoryDetailController extends Controller
+class AdminCategoryDetailController extends AdminController
 {
     public function getList()
     {
@@ -35,6 +35,7 @@ class AdminCategoryDetailController extends Controller
 
         $category_detail = new CategoryDetail;
         $category_detail->c_name = $request->c_name;
+        $category_detail->unsigned_name = parent::removeUnicode($request->c_name);
         $category_detail->fk_category_detail_id = $request->fk_category_detail_id;
         $category_detail->save();
 
@@ -61,6 +62,7 @@ class AdminCategoryDetailController extends Controller
 
         $category_detail = CategoryDetail::find($id);
         $category_detail->c_name = $request->c_name;
+        $category_detail->unsigned_name = parent::removeUnicode($request->c_name);
         $category_detail->fk_category_detail_id = $request->fk_category_detail_id;
         $category_detail->save();
 
