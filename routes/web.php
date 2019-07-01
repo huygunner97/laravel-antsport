@@ -68,7 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 		Route::get('delete/{id}', 'AdminNewsController@getDelete');
 	});
 
-	Route::group(['prefix' => 'user'], function() {
+	Route::group(['prefix' => 'user', 'middleware' => 'level'], function() {
 		Route::get('list', 'AdminUserController@getList');
 
 		Route::get('add', 'AdminUserController@getAdd');
